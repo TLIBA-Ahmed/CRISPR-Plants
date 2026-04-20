@@ -74,3 +74,50 @@ These genes are widely studied in **plant genetics and crop improvement**.
 # 🔬 Pipeline Architecture
 
 The notebook follows this pipeline:
+
+Genomic Data (Ensembl API)
+↓
+Sequence Processing
+↓
+PAM Site Detection
+↓
+sgRNA Candidate Generation
+↓
+Efficiency Prediction
+(DeepCas9 / DeepCpf1)
+↓
+Attention-based Analysis
+(CRISPR-ONT)
+↓
+Off-target Risk Prediction
+(CRISPR-OFFT)
+↓
+ML Model Comparison
+↓
+Final Ranking of sgRNA Guides
+
+
+---
+
+# 🤖 CRISPR-GPT Simulation
+
+The project also simulates a **CRISPR design assistant powered by LLM agents**.
+
+In a production environment, each step of the pipeline could call a large language model to:
+
+- analyze gene sequences
+- propose sgRNA designs
+- evaluate editing risks
+- generate experimental reports
+
+Example concept:
+
+```python
+response = openai.chat.completions.create(
+    model="gpt-4o",
+    messages=[
+        {"role": "system", "content": "You are CRISPR-GPT, an expert in plant genome editing."},
+        {"role": "user", "content": "Design sgRNAs for a plant gene."}
+    ]
+)
+
